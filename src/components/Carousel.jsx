@@ -35,19 +35,22 @@ export default function Carousel() {
         <SwiperSlide>
           <Slide
             image={bgimg1}
-            text='Get Your Web Development Projects Done in minutes'
+            text='Run Towards Your Goals' 
+            subtitle = 'Seamlessly Organize and Elevate Your Marathon Experience'
           />
         </SwiperSlide>
         <SwiperSlide>
           <Slide
             image={bgimg2}
-            text='Get Your Graphics Design Projects Done in minutes'
+            text='Run Smarter, Manage Bette'
+            subtitle = 'Your Ultimate Solution for Seamless Marathon Planning and Participant Management'
           />
         </SwiperSlide>
         <SwiperSlide>
           <Slide
             image={bgimg3}
-            text='Start Your Digital Marketing Campaigns up n running'
+            text='Run Beyond Limits'
+            subtitle = 'Streamline Your Marathon Management – From Registration to the Finish Line!'
           />
         </SwiperSlide>
       </Swiper>
