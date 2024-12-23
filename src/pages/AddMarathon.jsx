@@ -1,10 +1,173 @@
-import React from 'react';
+import { data } from 'autoprefixer';
+import React, { useContext } from 'react';
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { AuthContext } from '../providers/AuthProvider';
 
 const AddMarathon = () => {
+    const {user}=useContext(AuthContext)
+    const [startDate,setStartDate]=useState(new Date())
+    const [startRegistrationDate, setStartRegistrationtDate] = useState(new Date());
+    const [endRegistrationDate, setEndRegistrationtDate] = useState(new Date());
+    const [marathonStartDate,setMarathonStartDate]=useState(new Date())
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Submit form data logic here
+        // console.log("Marathon Data:", );
+        const form = e.target;
+        const title = form.title.value;
+        const startRegistration = startRegistrationDate;
+        const endRegistration = endRegistrationDate;
+        const startMarathon = marathonStartDate;
+        const marathonImg = form.img.value;
+        const createdAt = startDate;
+        const formData = {
+            title, 
+            startRegistration, 
+            endRegistration, 
+            startMarathon, 
+            marathonImg,
+            createdAt,
+            email: user?.email,
+            name:user?.displayName,
+            photo:user?.photoURL,
+            registration_count :0
+        }
+        console.table(formData)
+      };
     return (
         <div>
-           <h1>merathon</h1> 
-           
+            {/* <h1>merathon</h1> */}
+            <div className="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+                <h2 className="text-2xl font-bold mb-6">Create a Marathon Event</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    {/* Marathon Title */}
+                    <div className="form-control">
+                        <label className="label">Marathon Title</label>
+                        <input
+                            type="text"
+                            name="title"
+                            // value={formData.title}
+                            // onChange={handleChange}
+                            placeholder="Enter marathon title"
+                            className="input input-bordered"
+                            required
+                        />
+                    </div>
+
+                    {/* Registration Dates */}
+                    <div className="form-control">
+                        <label className="label">Start Registration Date</label>
+                        <DatePicker
+                            selected={startRegistrationDate}
+                            onChange={(date) => setStartRegistrationtDate(date)}
+                            className="input input-bordered"
+                            placeholderText="Select start date"
+                            required
+                        />
+                    </div>
+                    {/* end Registration Date  */}
+                    <div className="form-control">
+                        <label className="label">End Registration Date</label>
+                        <DatePicker
+                            selected={endRegistrationDate}
+                            onChange={(date) =>setEndRegistrationtDate( date )}
+                            className="input input-bordered"
+                            placeholderText="Select end date"
+                            required
+                        />
+                    </div>
+
+                    {/* Marathon Start Date */}
+                    <div className="form-control">
+                        <label className="label">Marathon Start Date</label>
+                        <DatePicker
+                            selected={marathonStartDate}
+                            onChange={(date) => setMarathonStartDate(date)}
+                            className="input input-bordered"
+                            placeholderText="Select marathon start date"
+                            required
+                        />
+                    </div>
+
+                    {/* Location */}
+                    <div className="form-control">
+                        <label className="label">Location</label>
+                        <input
+                            type="text"
+                            name="location"
+                            // value={formData.location}
+                            // onChange={handleChange}
+                            placeholder="Enter location"
+                            className="input input-bordered"
+                            required
+                        />
+                    </div>
+
+                    {/* Running Distance */}
+                    <div className="form-control">
+                        <label className="label">Running Distance</label>
+                        <select
+                            name="distance"
+                            // value={formData.distance}
+                            // onChange={handleChange}
+                            className="select select-bordered"
+                            required
+                        >
+                            <option value="">Select distance</option>
+                            <option value="25k">25k</option>
+                            <option value="10k">10k</option>
+                            <option value="3k">3k</option>
+                        </select>
+                    </div>
+
+                    {/* Description */}
+                    <div className="form-control">
+                        <label className="label">Description</label>
+                        <textarea
+                            name="description"
+                            // value={formData.description}
+                            // onChange={handleChange}
+                            placeholder="Enter description"
+                            className="textarea textarea-bordered"
+                            rows="4"
+                            required
+                        ></textarea>
+                    </div>
+
+                    {/* Marathon Image */}
+                    <div className="form-control">
+                        <label className="label">Marathon Image</label>
+                        <input
+                            type="text"
+                            name='img'
+                            // onChange={handleFileChange}
+                            className="file-input file-input-bordered"
+                            required
+                        />
+                    </div>
+
+                    {/* CreatedAt  */}
+                    <div className="form-control">
+                        <label className="label">CreatedAt</label>
+                        <DatePicker
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            className="input input-bordered"
+                            placeholderText="Select marathon start date"
+                            required
+                            readOnly
+                        />
+                    </div>
+
+                    {/* Submit Button */}
+                    <button type="submit" className="btn btn-primary w-full">
+                        Create Marathon
+                    </button>
+                </form>
+            </div>
+
         </div>
     );
 };
