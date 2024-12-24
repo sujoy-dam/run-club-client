@@ -4,14 +4,18 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from '../providers/AuthProvider';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddMarathon = () => {
     const {user}=useContext(AuthContext)
+    const navigate = useNavigate()
     const [startDate,setStartDate]=useState(new Date())
     const [startRegistrationDate, setStartRegistrationtDate] = useState(new Date());
     const [endRegistrationDate, setEndRegistrationtDate] = useState(new Date());
     const [marathonStartDate,setMarathonStartDate]=useState(new Date())
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // Submit form data logic here
         // console.log("Marathon Data:", );
@@ -20,13 +24,15 @@ const AddMarathon = () => {
         const startRegistration = startRegistrationDate;
         const endRegistration = endRegistrationDate;
         const startMarathon = marathonStartDate;
+        const location = form.location.value;
         const marathonImg = form.img.value;
         const createdAt = startDate;
         const formData = {
             title, 
             startRegistration, 
             endRegistration, 
-            startMarathon, 
+            startMarathon,
+            location, 
             marathonImg,
             createdAt,
             email: user?.email,
@@ -35,6 +41,16 @@ const AddMarathon = () => {
             registration_count :0
         }
         console.table(formData)
+        try {
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-marathons`, formData)
+            console.log(data)
+            form.reset()
+            toast.success('Marathon added successfully')
+            navigate('/my-marathons-list')
+          } catch (err) {
+            console.log(err)
+            toast.error(err.message)
+          }
       };
     return (
         <div>

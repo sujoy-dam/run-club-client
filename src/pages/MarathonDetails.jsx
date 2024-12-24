@@ -3,7 +3,7 @@ import React from 'react';
 const MarathonDetails = () => {
     return (
         <div>
-            <h1>Marathos Details</h1>
+            <h1>Marathons Details</h1>
         </div>
     );
 };
