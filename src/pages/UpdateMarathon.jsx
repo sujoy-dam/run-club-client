@@ -1,13 +1,16 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import DatePicker from "react-datepicker";
+import { AuthContext } from '../providers/AuthProvider';
+import toast from 'react-hot-toast';
 
 const UpdateMarathon = () => {
+    const {user}=useContext(AuthContext)
     const [singleMarathon, setSingleMarathon] = useState({})
     const { id } = useParams()
-    console.log(id)
-    console.log(singleMarathon)
+    // console.log(id)
+    // console.log(singleMarathon)
     const navigate = useNavigate()
     const [startDate, setStartDate] = useState(new Date())
     const [startRegistrationDate, setStartRegistrationtDate] = useState(new Date());
@@ -27,6 +30,7 @@ const UpdateMarathon = () => {
     }
 
     const handleUpdate = async (e)=>{
+
         e.preventDefault()
         const form = e.target;
         const title = form.title.value;
@@ -48,8 +52,22 @@ const UpdateMarathon = () => {
             createdAt,
             distance,
             description,
+            email: user?.email,
+            name:user?.displayName,
+            photo:user?.photoURL,
+            registration_count :singleMarathon.registration_count
         }
-        console.log(updateData)
+        try {
+            const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/update-marathon/${id}`, updateData)
+            // console.log(data)
+            form.reset()
+            toast.success('Marathon updated successfully')
+            navigate('/my-marathons-list')
+        } catch (err) {
+            // console.log(err)
+            toast.error(err.message)
+        }
+
     }
     return (
         <div>

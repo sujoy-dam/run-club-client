@@ -9,12 +9,12 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const AddMarathon = () => {
-    const {user}=useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const navigate = useNavigate()
-    const [startDate,setStartDate]=useState(new Date())
+    const [startDate, setStartDate] = useState(new Date())
     const [startRegistrationDate, setStartRegistrationtDate] = useState(new Date());
     const [endRegistrationDate, setEndRegistrationtDate] = useState(new Date());
-    const [marathonStartDate,setMarathonStartDate]=useState(new Date())
+    const [marathonStartDate, setMarathonStartDate] = useState(new Date())
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Submit form data logic here
@@ -27,22 +27,22 @@ const AddMarathon = () => {
         const location = form.location.value;
         const marathonImg = form.img.value;
         const createdAt = startDate;
-        const distance= form.distance.value;
+        const distance = form.distance.value;
         const description = form.description.value;
         const formData = {
-            title, 
-            startRegistration, 
-            endRegistration, 
+            title,
+            startRegistration,
+            endRegistration,
             startMarathon,
-            location, 
+            location,
             marathonImg,
             createdAt,
             distance,
             description,
             email: user?.email,
-            name:user?.displayName,
-            photo:user?.photoURL,
-            registration_count :0
+            name: user?.displayName,
+            photo: user?.photoURL,
+            registration_count: 0
         }
         console.table(formData)
         try {
@@ -51,11 +51,11 @@ const AddMarathon = () => {
             form.reset()
             toast.success('Marathon added successfully')
             navigate('/my-marathons-list')
-          } catch (err) {
+        } catch (err) {
             // console.log(err)
             toast.error(err.message)
-          }
-      };
+        }
+    };
     return (
         <div>
             {/* <h1>merathon</h1> */}
@@ -92,7 +92,7 @@ const AddMarathon = () => {
                         <label className="label">End Registration Date</label>
                         <DatePicker
                             selected={endRegistrationDate}
-                            onChange={(date) =>setEndRegistrationtDate( date )}
+                            onChange={(date) => setEndRegistrationtDate(date)}
                             className="input input-bordered"
                             placeholderText="Select end date"
                             required
