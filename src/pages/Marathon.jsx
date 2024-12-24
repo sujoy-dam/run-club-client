@@ -4,7 +4,7 @@ import MarathonCard from '../components/MarathonCard';
 
 const Marathon = () => {
     const [marathons, setMarathons] = useState([])
-    console.log(marathons)
+    // console.log(marathons)
   
     useEffect(() => {
       fetchAllJobs()

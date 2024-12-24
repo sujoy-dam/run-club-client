@@ -27,6 +27,8 @@ const AddMarathon = () => {
         const location = form.location.value;
         const marathonImg = form.img.value;
         const createdAt = startDate;
+        const distance= form.distance.value;
+        const description = form.description.value;
         const formData = {
             title, 
             startRegistration, 
@@ -35,6 +37,8 @@ const AddMarathon = () => {
             location, 
             marathonImg,
             createdAt,
+            distance,
+            description,
             email: user?.email,
             name:user?.displayName,
             photo:user?.photoURL,
@@ -43,12 +47,12 @@ const AddMarathon = () => {
         console.table(formData)
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-marathons`, formData)
-            console.log(data)
+            // console.log(data)
             form.reset()
             toast.success('Marathon added successfully')
             navigate('/my-marathons-list')
           } catch (err) {
-            console.log(err)
+            // console.log(err)
             toast.error(err.message)
           }
       };

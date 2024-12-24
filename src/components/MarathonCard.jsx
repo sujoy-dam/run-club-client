@@ -9,7 +9,7 @@ const MarathonCard = ({ marathon }) => {
     marathonImg, }=marathon
   return (
     <div>
-      <div className="card w-full md:w-80 bg-base-100 shadow-xl">
+      <div className="card bg-base-100 shadow-xl">
         <figure>
           <img src={marathonImg} alt={title} className="h-48 w-full object-cover" />
         </figure>

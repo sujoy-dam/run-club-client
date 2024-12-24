@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 const MyMarathonsList = () => {
     const [myMarathons, setMyMarathons] = useState([])
 
-    console.log(myMarathons)
+    // console.log(myMarathons)
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const MyMarathonsList = () => {
 
         }
         catch (err) {
-            console.log(err.message)
+            // console.log(err.message)
         }
     }
     return (
