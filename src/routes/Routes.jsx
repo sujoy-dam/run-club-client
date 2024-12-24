@@ -15,6 +15,7 @@ import MyMarathonsList from '../pages/MyMarathonsList'
 import MyApplyList from '../pages/MyApplyList'
 import MarathonDetails from '../pages/MarathonDetails'
 import Dashboard from '../pages/Dashboard'
+import UpdateMarathon from '../pages/UpdateMarathon'
 // import MyBids from '../pages/MyBids'
 // import BidRequests from '../pages/BidRequests'
 // import AllJobs from '../pages/AllJobs'
@@ -60,6 +61,12 @@ const router = createBrowserRouter([
         path:'/marathon-details/:id',
         element:<PrivateRoute>
           <MarathonDetails></MarathonDetails>
+        </PrivateRoute>
+      },
+      {
+        path:'/update-marathon/:id',
+        element:<PrivateRoute>
+          <UpdateMarathon></UpdateMarathon>
         </PrivateRoute>
       },
       {
