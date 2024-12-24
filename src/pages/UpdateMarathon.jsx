@@ -181,7 +181,7 @@ const UpdateMarathon = () => {
                             name='img'
                             // onChange={handleFileChange}
                             className="file-input file-input-bordered"
-                            defaultValue={singleMarathon.photo}
+                            defaultValue={singleMarathon.marathonImg}
                             required
                         />
                     </div>
