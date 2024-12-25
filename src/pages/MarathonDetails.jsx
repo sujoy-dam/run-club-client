@@ -1,16 +1,17 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { format } from 'date-fns';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 const MarathonDetails = () => {
     const [marathon, setMarathon] = useState({})
-    const {id}=useParams()
+    const { id } = useParams()
     useEffect(() => {
         fetchSingleMarathonData()
     }, [id])
     const fetchSingleMarathonData = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/marathon/${id}`)
-       setMarathon(data)
+        setMarathon(data)
     }
     return (
         <div>
@@ -32,14 +33,14 @@ const MarathonDetails = () => {
                         <div className="mt-4">
                             <p>
                                 <strong>Start Registration Date:</strong>{" "}
-                                {marathon.startRegistration}
+                                {marathon.startRegistration && format(new Date(marathon?.startRegistration), 'P')}
                             </p>
                             <p>
                                 <strong>End Registration Date:</strong>{" "}
-                                {marathon.endRegistration}
+                                {marathon.endRegistration && format(new Date(marathon.endRegistration), 'P')}
                             </p>
                             <p>
-                                <strong>Marathon Start Date:</strong> {marathon.startMarathon}
+                                <strong>Marathon Start Date:</strong> {marathon.startMarathon && format(new Date(marathon.startMarathon), 'P')}
                             </p>
                             <p>
                                 <strong>Location:</strong> {marathon.location}
@@ -56,7 +57,12 @@ const MarathonDetails = () => {
                             </p>
                         </div>
                         <div className="card-actions justify-end mt-6">
-                            <button className="btn btn-primary">Register Now</button>
+
+                            <Link to={`/register-marathon/${id}`}>
+
+                                <button className="btn btn-primary">Register Now
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
