@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const MarathonCard = ({ marathon }) => {
   const {_id, title,
-    startRegistration,
+    startRegistration,email,
     endRegistration, location, 
     marathonImg, }=marathon
   return (
@@ -17,6 +17,9 @@ const MarathonCard = ({ marathon }) => {
           <h2 className="card-title text-lg font-bold">{title}</h2>
           <p className="text-sm text-gray-600">
             <strong>Location:</strong> {location}
+          </p>
+          <p className="text-sm text-gray-600">
+            <strong>Email:</strong> {email}
           </p>
           <p className="text-sm text-gray-600">
             <strong>Registration:</strong> {format(new Date(startRegistration), 'P')} - {format(new Date(endRegistration), 'P')}

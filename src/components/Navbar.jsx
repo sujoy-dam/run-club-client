@@ -35,7 +35,7 @@ const Navbar = () => {
             <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
             </div> */}
             <div className='mx-5'>
-              <img className='w-12 h-12 rounded-full' src={user.photoURL} alt="" />
+              <img referrerPolicy='no-referrer' className='w-12 h-12 rounded-full' src={user.photoURL} alt="" />
             </div>
             <div className=''>
               <button className='btn' onClick={logOut}>Log Out</button>

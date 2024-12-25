@@ -1,13 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { format } from 'date-fns';
+import toast from 'react-hot-toast';
 
 const MarathonRegister = () => {
     const { user } = useContext(AuthContext)
     const { id } = useParams()
     console.log(id)
+    const navigate = useNavigate()
 
 
 
@@ -20,20 +22,24 @@ const MarathonRegister = () => {
     }, [id])
     const fetchSingleMarathonData = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/marathon/${id}`)
+        console.log(data)
         setMarathon(data)
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('connected')
         // console.log('Form Submitted:', { ...formData, email: user.email, marathon });
         const form= e.target;
-        const email= form.email.value;
+        const email= user?.email;
         const title =form.marathonTitle.value;
         const startDate = form.startDate.value;
         const firstName= form.firstName.value;
         const lastName = form.lastName.value;
         const mobileNo = form.contactNumber.value;
         const info = form.additionalInfo.value;
+        if(marathon?.email === user?.email){
+            return toast.success('You don join your own marathon')
+        }
         const registerData = {
             email,
             title,
@@ -44,6 +50,16 @@ const MarathonRegister = () => {
             info
         }
         console.log(registerData)
+        try {
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/apply`, registerData)
+            // console.log(data)
+            form.reset()
+            toast.success('Registered successfully')
+            navigate('/my-apply-list')
+        } catch (err) {
+            // console.log(err)
+            toast.error(err.message)
+        }
     };
 
     return (

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { format } from 'date-fns';
+import { compareAsc, format } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
@@ -13,6 +13,10 @@ const MarathonDetails = () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/marathon/${id}`)
         setMarathon(data)
     }
+    const result1 = compareAsc(new Date(), new Date(marathon?.startRegistration))
+    const result2 = compareAsc(new Date(), new Date(marathon?.endRegistration))
+    console.log(result1)
+    console.log(result2)
     return (
         <div>
             <h1>Marathons Details</h1>
@@ -56,12 +60,12 @@ const MarathonDetails = () => {
                                 {marathon.registration_count}
                             </p>
                         </div>
-                        <div className="card-actions justify-end mt-6">
+                        <div className='card-actions justify-end mt-6'>
 
-                            <Link to={`/register-marathon/${id}`}>
+                            <Link className={`btn ${result1 === -1 ? 'btn-disabled' : 'btn-primary'} ${result2 === 1 ? 'btn-disabled' : 'btn-primary'}`} to={`/register-marathon/${id}`}>
 
-                                <button className="btn btn-primary">Register Now
-                                </button>
+                                Register
+
                             </Link>
                         </div>
                     </div>
