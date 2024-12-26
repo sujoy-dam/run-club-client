@@ -6,7 +6,7 @@ const MarathonCard = ({ marathon }) => {
   const {_id, title,
     startRegistration,email,
     endRegistration, location, 
-    marathonImg, }=marathon
+    marathonImg, registration_count}=marathon
   return (
     <div>
       <div className="card bg-base-100 shadow-xl">
@@ -23,6 +23,9 @@ const MarathonCard = ({ marathon }) => {
           </p>
           <p className="text-sm text-gray-600">
             <strong>Registration:</strong> {format(new Date(startRegistration), 'P')} - {format(new Date(endRegistration), 'P')}
+          </p>
+          <p className="text-sm text-gray-600">
+            <strong>Perticipate:</strong> {registration_count}
           </p>
           <div className="card-actions justify-end">
             <Link to={`/marathon-details/${_id}`}>

@@ -1,76 +1,77 @@
-import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../providers/AuthProvider';
-import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { format } from 'date-fns';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate, useParams } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProvider';
+import { format } from 'date-fns';
 
-const MarathonRegister = () => {
+const RegistrationUpadate = () => {
+
     const { user } = useContext(AuthContext)
+    const [updateApply, setUpdateApply] = useState({})
     const { id } = useParams()
-    console.log(id)
+    // console.log(id)
+    // console.log(singleMarathon)
     const navigate = useNavigate()
+    // const [startDate, setStartDate] = useState(new Date())
+    // const [startRegistrationDate, setStartRegistrationtDate] = useState(new Date());
+    // const [endRegistrationDate, setEndRegistrationtDate] = useState(new Date());
+    // const [marathonStartDate, setMarathonStartDate] = useState(new Date())
 
-
-
-
-
-    const [marathon, setMarathon] = useState({})
-    // const { id } = useParams()
-    // const {_id}=marathon
     useEffect(() => {
         fetchSingleMarathonData()
     }, [id])
     const fetchSingleMarathonData = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/marathon/${id}`)
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/apply/${id}`)
+        setUpdateApply(data)
         console.log(data)
-        setMarathon(data)
+        //     setStartRegistrationtDate(new Date(data.startRegistration))
+        //     setEndRegistrationtDate(new Date(data.endRegistration))
+        //     setMarathonStartDate(new Date(data.startMarathon))
+        //     setStartDate(data.createdAt)
     }
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        console.log('connected')
-        // console.log('Form Submitted:', { ...formData, email: user.email, marathon });
-        const form= e.target;
-        const email= user?.email;
-        const title =form.marathonTitle.value;
-        const startDate = form.startDate.value;
+
+
+
+    const handleUpdate = async (e) => {
+
+        e.preventDefault()
+        const form = e.target;
+        // const form= e.target;
+        // const email= updateApply.email;
+        // const title =form.marathonTitle.value;
+        // const startDate = form.startDate.value;
         const firstName= form.firstName.value;
         const lastName = form.lastName.value;
         const mobileNo = form.contactNumber.value;
         const info = form.additionalInfo.value;
-        const  marathonId = marathon._id
-        if(marathon?.email === user?.email){
-            return toast.error('You do not join your own program')
-        }
-        const registerData = {
-            email,
-            title,
-            startDate,
+        const updateData = {
+
             firstName,
             lastName,
             mobileNo,
-            info,
-            marathonId
+            info
         }
-        console.log(registerData)
         try {
-            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/apply`, registerData)
+            const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/update-apply/${id}`, updateData)
             // console.log(data)
             form.reset()
-            toast.success('Registered successfully')
+            toast.success('Updated successfully')
             navigate('/my-apply-list')
         } catch (err) {
             // console.log(err)
             toast.error(err.message)
         }
-    };
 
+    }
     return (
         <div>
+            <h1>Registration Update</h1>
+            <h2>{updateApply._id}</h2>
             <div className="min-h-screen flex items-center justify-center bg-gray-100">
                 <div className="w-full max-w-md p-6 bg-white rounded shadow-md">
                     <h2 className="text-2xl font-bold text-center mb-6">Registration Form</h2>
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleUpdate} className="space-y-4">
                         {/* Email Field (Auto-filled and Read-only) */}
                         <div>
                             <label className="label">
@@ -79,7 +80,7 @@ const MarathonRegister = () => {
                             <input
                                 type="email"
                                 name="email"
-                                value={user.email}
+                                value={updateApply.email}
                                 readOnly
                                 className="input input-bordered w-full bg-gray-100"
                             />
@@ -94,7 +95,7 @@ const MarathonRegister = () => {
                                 type="text"
                                 name="marathonTitle"
                                 // value={marathon.title}
-                                defaultValue={marathon.title}
+                                defaultValue={updateApply.title}
                                 readOnly
                                 className="input input-bordered w-full bg-gray-100"
                             />
@@ -109,7 +110,7 @@ const MarathonRegister = () => {
                                 type="text"
                                 name="startDate"
                                 // value={marathon.startDate}
-                                defaultValue={marathon.startMarathon && format(new Date(marathon.startMarathon), 'P')}
+                                defaultValue={updateApply.startDate && format(new Date(updateApply.startDate), 'P')}
                                 readOnly
                                 className="input input-bordered w-full bg-gray-100"
                             />
@@ -127,6 +128,7 @@ const MarathonRegister = () => {
                                 // onChange={handleChange}
                                 placeholder="Enter your first name"
                                 className="input input-bordered w-full"
+                                defaultValue={updateApply.firstName}
                                 required
                             />
                         </div>
@@ -141,6 +143,7 @@ const MarathonRegister = () => {
                                 name="lastName"
                                 // value={formData.lastName}
                                 // onChange={handleChange}
+                                defaultValue={updateApply.lastName}
                                 placeholder="Enter your last name"
                                 className="input input-bordered w-full"
                                 required
@@ -159,6 +162,7 @@ const MarathonRegister = () => {
                                 // onChange={handleChange}
                                 placeholder="Enter your contact number"
                                 className="input input-bordered w-full"
+                                defaultValue={updateApply.mobileNo}
                                 required
                             />
                         </div>
@@ -174,6 +178,7 @@ const MarathonRegister = () => {
                                 // onChange={handleChange}
                                 placeholder="Any additional information"
                                 className="textarea textarea-bordered w-full"
+                                defaultValue={updateApply.info}
                             ></textarea>
                         </div>
 
@@ -188,4 +193,4 @@ const MarathonRegister = () => {
     );
 };
 
-export default MarathonRegister;
+export default RegistrationUpadate;
