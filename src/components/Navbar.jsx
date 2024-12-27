@@ -19,37 +19,37 @@ const Navbar = () => {
           <div className='flex items-center gap-2'>
             <Link to="/">
               <img className='w-auto h-10 rounded-xl' src={logo} alt="" /></Link>
-            <Link to="/" className='uppercase text-xl font-bold'>runclub</Link>
+            <Link to="/" className='uppercase text-lg lg:text-xl font-bold'>runclub</Link>
           </div>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 flex flex-col md:flex-row">
 
             {nav}
           </ul>
         </div>
-        <div>
-          {user ? <>
+        <div className='flex flex-col'>
+          {user ? <div className='flex flex-col md:flex-row'>
            
             {/* <div>
             <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
             </div> */}
-            <div className='mx-5'>
+            <div className='md:mx-5'>
               <img referrerPolicy='no-referrer' className='w-12 h-12 rounded-full' src={user.photoURL} alt="" />
             </div>
             <div className=''>
               <button className='btn' onClick={logOut}>Log Out</button>
             </div>
-          </> : <>
+          </div> : <div>
             <NavLink to='/login'>
               <button className='btn'>Login</button>
             </NavLink>
             <NavLink to='/registration'>
-              <button className='btn ml-5'>SignUp</button>
+              <button className='btn md:ml-5'>SignUp</button>
             </NavLink>
             {/* <li><NavLink to='/dashboard'>Dashboard</NavLink></li> */}
 
-          </>}
+          </div>}
         </div>
       </div>
     </>

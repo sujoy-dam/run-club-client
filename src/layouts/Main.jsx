@@ -4,9 +4,9 @@ import Footer from '../components/Footer'
 
 const Main = () => {
   return (
-    <div>
+    <div className=''>
       {/* Navbar */}
-      {/* <Navbar /> */}
+      <Navbar />
       {/* Outlet */}
       <div className='min-h-[calc(100vh-306px)]'>
         <Outlet />
