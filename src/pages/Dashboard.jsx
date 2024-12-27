@@ -41,7 +41,7 @@ const Dashboard = () => {
           <h1 className="text-2xl font-bold">Welcome to the Dashboard</h1>
         </header>
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="bg-white p-4 shadow rounded">
+          {/* <div className="bg-white p-4 shadow rounded">
             <h2 className="text-xl font-bold">Card 1</h2>
             <p>Content for card 1.</p>
           </div>
@@ -52,7 +52,7 @@ const Dashboard = () => {
           <div className="bg-white p-4 shadow rounded">
             <h2 className="text-xl font-bold">Card 3</h2>
             <p>Content for card 3.</p>
-          </div>
+          </div> */}
         </section>
       </main>
     </div>

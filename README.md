@@ -1,8 +1,29 @@
-# React + Vite
+# Marathon Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Website URL](#) *(Replace # with the actual link once the site is live)*
 
-Currently, two official plugins are available:
+## Overview
+The Marathon Management System is a comprehensive platform designed to simplify the organization, registration, and tracking of marathons. It is ideal for organizers, participants, and sponsors, providing an intuitive interface and robust functionalities to manage events efficiently.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **Event Registration**: Seamlessly register participants, teams, and volunteers with an easy-to-use online form.
+
+- **Real-Time Updates**: Track marathon progress, participant stats, and event updates live during the race.
+
+- **Customizable Dashboard**: Personalized dashboards for organizers, participants, and sponsors, offering relevant information and controls.
+
+- **Payment Integration**: Securely handle registration fees and donations with integrated payment gateways.
+
+- **Analytics and Reporting**: Generate detailed reports on participant performance, event statistics, and financial summaries.
+
+- **Sponsor Management**: Highlight sponsors with dedicated sections and promotional opportunities.
+
+- **Mobile-Friendly**: Responsive design ensures smooth operation across all devices, from desktops to smartphones.
+
+## Technology Stack
+- **Frontend**: HTML5, CSS3, JavaScript (React.js)
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Hosting**: Vercel
+
