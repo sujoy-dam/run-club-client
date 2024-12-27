@@ -12,7 +12,7 @@ const HomeMarathon = () => {
     fetchAllJobs()
   }, [])
   const fetchAllJobs = async () => {
-    const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/marathons`)
+    const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/limit-marathons`)
     setHomeMarathons(data)
   }
   return (
