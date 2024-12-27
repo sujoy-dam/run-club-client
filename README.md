@@ -1,6 +1,6 @@
 # Marathon Management System
 
-[Live Website URL](#) *(Replace # with the actual link once the site is live)*
+[Live Website URL](https://marathon-management-syst-c7b91.firebaseapp.com/)
 
 ## Overview
 The Marathon Management System is a comprehensive platform designed to simplify the organization, registration, and tracking of marathons. It is ideal for organizers, participants, and sponsors, providing an intuitive interface and robust functionalities to manage events efficiently.
