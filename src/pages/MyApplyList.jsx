@@ -56,10 +56,10 @@ const MyApplyList = () => {
     }
     return (
         <div>
-            <h1>my apply list</h1>
-            <section className='container px-4 mx-auto pt-12'>
+            {/* <h1>my apply list</h1> */}
+            <section className='container px-4 mx-auto pt-12 mb-10'>
                 <div className='flex items-center gap-x-3'>
-                    <h2 className='text-lg font-medium text-gray-800 '>My Posted Jobs</h2>
+                    <h2 className='text-lg font-medium text-gray-800 '>My Apply List</h2>
 
                     <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
                         {myMarathons.length}
