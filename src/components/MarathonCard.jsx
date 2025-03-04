@@ -9,7 +9,7 @@ const MarathonCard = ({ marathon }) => {
     marathonImg, registration_count}=marathon
   return (
     <div>
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-100 shadow-xl transform transition-transform hover:scale-105">
         <figure>
           <img src={marathonImg} alt={title} className="h-48 w-full object-cover" />
         </figure>

@@ -4,9 +4,12 @@ import Footer from '../components/Footer'
 
 const Main = () => {
   return (
-    <div className=''>
+    <div className='relative'>
       {/* Navbar */}
-      <Navbar />
+      <nav className='sticky top-0 z-10 bg-base-100 shadow-lg'>
+
+        <Navbar />
+      </nav>
       {/* Outlet */}
       <div className='min-h-[calc(100vh-306px)]'>
         <Outlet />

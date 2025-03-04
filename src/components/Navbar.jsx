@@ -8,13 +8,13 @@ const Navbar = () => {
     <li><NavLink to='/'>Home</NavLink></li>
     {/* <li><NavLink to='/add-marathon'>Add Marathon</NavLink></li> */}
     <li><NavLink to='/marathon'>All Marathons</NavLink></li>
-    {user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>}
+    {user && <li><NavLink to='/dashboard/add-marathon'>Dashboard</NavLink></li>}
     {/* <li><NavLink to='/my-marathons-list'>My Marathons List</NavLink></li> */}
     {/* <li><NavLink to='/my-apply-list'>My Apply List</NavLink></li> */}
   </>
   return (
     <>
-      <div className="navbar bg-base-100 container mx-auto">
+      <div className="navbar container mx-auto py-4">
         <div className="flex-1">
           <div className='flex items-center gap-2'>
             <Link to="/">

@@ -26,7 +26,7 @@ const Testimonials = () => {
         <h2 className="text-3xl font-bold text-center mb-10">What Our Runners Say</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-100 p-6 rounded-lg shadow-md">
+            <div key={index} className="bg-gray-100 p-6 rounded-lg shadow-md transform transition-transform hover:scale-105">
               <div className="flex items-center mb-4">
                 <img
                   src={testimonial.image}

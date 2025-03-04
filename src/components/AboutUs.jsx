@@ -44,15 +44,15 @@ const AboutUs = () => {
 
                     {/* Stats Section */}
                     <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div className="text-center bg-white p-8 rounded-lg shadow-xl">
+                        <div className="text-center bg-white p-8 rounded-lg shadow-xl transform transition-transform hover:scale-105">
                             <h4 className="text-4xl font-bold text-blue-600">15+</h4>
                             <p className="text-gray-700">Years of Experience</p>
                         </div>
-                        <div className="text-center bg-white p-8 rounded-lg shadow-xl">
+                        <div className="text-center bg-white p-8 rounded-lg shadow-xl transform transition-transform hover:scale-105">
                             <h4 className="text-4xl font-bold text-blue-600">60,000+</h4>
                             <p className="text-gray-700">Runners Participated</p>
                         </div>
-                        <div className="text-center bg-white p-8 rounded-lg shadow-xl">
+                        <div className="text-center bg-white p-8 rounded-lg shadow-xl transform transition-transform hover:scale-105">
                             <h4 className="text-4xl font-bold text-blue-600">200+</h4>
                             <p className="text-gray-700">Successful Events</p>
                         </div>

@@ -38,50 +38,54 @@ const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path:"/dashboard",
-        element:<Dashboard></Dashboard>
-      },
-      {
-        path: '/add-marathon',
+        path: '/marathon-details/:id',
         element: <PrivateRoute>
-          <AddMarathon></AddMarathon>
-        </PrivateRoute>
-      },
-      {
-        path: '/my-marathons-list',
-        element: <PrivateRoute>
-          <MyMarathonsList></MyMarathonsList>
-        </PrivateRoute>
-      },
-      {
-        path: '/my-apply-list',
-        element: <PrivateRoute>
-          <MyApplyList></MyApplyList>
-        </PrivateRoute>
-      },
-      {
-        path:'/marathon-details/:id',
-        element:<PrivateRoute>
           <MarathonDetails></MarathonDetails>
         </PrivateRoute>
       },
       {
-        path:'/update-marathon/:id',
-        element:<PrivateRoute>
-          <UpdateMarathon></UpdateMarathon>
-        </PrivateRoute>
-      },
-      {
-        path:'/register-marathon/:id',
-        element:<PrivateRoute>
-          <MarathonRegister></MarathonRegister>
-        </PrivateRoute>
-      },
-      {
-        path:'/update-apply/:id',
-        element:<PrivateRoute>
-          <RegistrationUpadate></RegistrationUpadate>
-        </PrivateRoute>
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+          // index:true,
+          {
+            path: 'add-marathon',
+            element: <PrivateRoute>
+              <AddMarathon></AddMarathon>
+            </PrivateRoute>
+          },
+          {
+            path: 'my-marathons-list',
+            element: <PrivateRoute>
+              <MyMarathonsList></MyMarathonsList>
+            </PrivateRoute>
+          },
+          {
+            path: 'my-apply-list',
+            element: <PrivateRoute>
+              <MyApplyList></MyApplyList>
+            </PrivateRoute>
+          },
+          {
+            path: 'update-marathon/:id',
+            element: <PrivateRoute>
+              <UpdateMarathon></UpdateMarathon>
+            </PrivateRoute>
+          },
+          {
+            path: 'register-marathon/:id',
+            element: <PrivateRoute>
+              <MarathonRegister></MarathonRegister>
+            </PrivateRoute>
+          },
+          {
+            path: 'update-apply/:id',
+            element: <PrivateRoute>
+              <RegistrationUpadate></RegistrationUpadate>
+            </PrivateRoute>
+          },
+
+        ]
       },
       {
         path: '/login',
