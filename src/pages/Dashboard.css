@@ -1,6 +1,6 @@
 a.active{
     background-color: rgb(220, 104, 189);
-    font-weight: 600;
+    /* font-weight: 600; */
     text-decoration: underline;
     /* color: white; */
 }
