@@ -56,7 +56,7 @@ const MyMarathonsList = () => {
     return (
         <div>
             {/* <h1>My marathons list</h1> */}
-            <section className='container px-4 mx-auto pt-12 mb-10'>
+            <section className='container px-2 md:px-4 mx-auto pt-12 mb-10'>
                 <div className='flex items-center gap-x-3'>
                     <h2 className='text-lg font-medium text-gray-800 '>My marathons List</h2>
 

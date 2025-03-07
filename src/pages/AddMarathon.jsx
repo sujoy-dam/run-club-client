@@ -59,9 +59,9 @@ const AddMarathon = () => {
     return (
         <div className=''>
             {/* <h1>merathon</h1> */}
-            <div className="w-full mx-auto p-0 md:p-6 bg-white shadow-lg rounded-lg">
+            <div className="w-full mx-auto p-2 md:p-6 bg-white shadow-lg rounded-lg">
                 <h2 className="text-2xl font-bold mb-6">Create a Marathon Event</h2>
-                <form onSubmit={handleSubmit} className="grid grid-cols-12 gap-10">
+                <form onSubmit={handleSubmit} className="grid grid-cols-12 gap-x-10 gap-5">
                     {/* Marathon Title */}
                     <div className="form-control col-span-full md:col-span-6">
                         <label className="label">Marathon Title</label>
@@ -167,7 +167,7 @@ const AddMarathon = () => {
                         />
                     </div>
                     {/* Description */}
-                    <div className="form-control col-span-full md:col-span-6">
+                    <div className="form-control col-span-full md:col-span-12">
                         <label className="label">Description</label>
                         <textarea
                             name="description"

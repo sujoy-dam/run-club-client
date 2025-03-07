@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div className='relative'>
       {/* Navbar */}
-      <nav className='sticky top-0 z-10 bg-base-100 shadow-lg'>
+      <nav className='sticky top-0 z-30 bg-base-100 shadow-lg'>
 
         <Navbar />
       </nav>
