@@ -50,20 +50,20 @@ const AddMarathon = () => {
             // console.log(data)
             form.reset()
             toast.success('Marathon added successfully')
-            navigate('/my-marathons-list')
+            navigate('/dashboard/my-marathons-list')
         } catch (err) {
             // console.log(err)
             toast.error(err.message)
         }
     };
     return (
-        <div className='w-full'>
+        <div className=''>
             {/* <h1>merathon</h1> */}
-            <div className="w-full mx-auto p-6 bg-white shadow-lg rounded-lg">
+            <div className="w-full mx-auto p-0 md:p-6 bg-white shadow-lg rounded-lg">
                 <h2 className="text-2xl font-bold mb-6">Create a Marathon Event</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="grid grid-cols-12 gap-10">
                     {/* Marathon Title */}
-                    <div className="form-control">
+                    <div className="form-control col-span-full md:col-span-6">
                         <label className="label">Marathon Title</label>
                         <input
                             type="text"
@@ -77,42 +77,42 @@ const AddMarathon = () => {
                     </div>
 
                     {/* Registration Dates */}
-                    <div className="form-control">
+                    <div className="form-control col-span-full md:col-span-6">
                         <label className="label">Start Registration Date</label>
                         <DatePicker
                             selected={startRegistrationDate}
                             onChange={(date) => setStartRegistrationtDate(date)}
-                            className="input input-bordered"
+                            className="input input-bordered w-full"
                             placeholderText="Select start date"
                             required
                         />
                     </div>
                     {/* end Registration Date  */}
-                    <div className="form-control">
+                    <div className="form-control col-span-full md:col-span-6">
                         <label className="label">End Registration Date</label>
                         <DatePicker
                             selected={endRegistrationDate}
                             onChange={(date) => setEndRegistrationtDate(date)}
-                            className="input input-bordered"
+                            className="input input-bordered w-full"
                             placeholderText="Select end date"
                             required
                         />
                     </div>
 
                     {/* Marathon Start Date */}
-                    <div className="form-control">
+                    <div className="form-control col-span-full md:col-span-6">
                         <label className="label">Marathon Start Date</label>
                         <DatePicker
                             selected={marathonStartDate}
                             onChange={(date) => setMarathonStartDate(date)}
-                            className="input input-bordered"
+                            className="input input-bordered w-full"
                             placeholderText="Select marathon start date"
                             required
                         />
                     </div>
 
                     {/* Location */}
-                    <div className="form-control">
+                    <div className="form-control col-span-full md:col-span-6">
                         <label className="label">Location</label>
                         <input
                             type="text"
@@ -126,7 +126,7 @@ const AddMarathon = () => {
                     </div>
 
                     {/* Running Distance */}
-                    <div className="form-control">
+                    <div className="form-control col-span-full md:col-span-6">
                         <label className="label">Running Distance</label>
                         <select
                             name="distance"
@@ -142,8 +142,32 @@ const AddMarathon = () => {
                         </select>
                     </div>
 
+                    {/* Marathon Image */}
+                    <div className="form-control col-span-full md:col-span-6">
+                        <label className="label">Marathon Image</label>
+                        <input
+                            type="text"
+                            name='img'
+                            // onChange={handleFileChange}
+                            className="file-input file-input-bordered"
+                            required
+                        />
+                    </div>
+
+                    {/* CreatedAt  */}
+                    <div className="form-control col-span-full md:col-span-6">
+                        <label className="label">CreatedAt</label>
+                        <DatePicker
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
+                            className="input input-bordered w-full"
+                            placeholderText="Select marathon start date"
+                            required
+                            readOnly
+                        />
+                    </div>
                     {/* Description */}
-                    <div className="form-control">
+                    <div className="form-control col-span-full md:col-span-6">
                         <label className="label">Description</label>
                         <textarea
                             name="description"
@@ -156,33 +180,8 @@ const AddMarathon = () => {
                         ></textarea>
                     </div>
 
-                    {/* Marathon Image */}
-                    <div className="form-control">
-                        <label className="label">Marathon Image</label>
-                        <input
-                            type="text"
-                            name='img'
-                            // onChange={handleFileChange}
-                            className="file-input file-input-bordered"
-                            required
-                        />
-                    </div>
-
-                    {/* CreatedAt  */}
-                    <div className="form-control">
-                        <label className="label">CreatedAt</label>
-                        <DatePicker
-                            selected={startDate}
-                            onChange={(date) => setStartDate(date)}
-                            className="input input-bordered"
-                            placeholderText="Select marathon start date"
-                            required
-                            readOnly
-                        />
-                    </div>
-
                     {/* Submit Button */}
-                    <button type="submit" className="btn btn-primary w-full">
+                    <button type="submit" className="btn btn-primary w-full col-span-12">
                         Create Marathon
                     </button>
                 </form>
