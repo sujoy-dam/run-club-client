@@ -11,6 +11,8 @@ import { FaThList } from "react-icons/fa";
 import { RiFileListFill } from "react-icons/ri";
 import { useState } from "react";
 import { MdMenu } from "react-icons/md";
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
 // import MyApplyList from './MyApplyList';
 const Dashboard = () => {
@@ -21,7 +23,11 @@ const Dashboard = () => {
 
       {/* Sidebar */}
       <aside className={`${toggleSidebar === true && "hidden"} w-64 bg-gray-800 text-white flex flex-col`}>
-        <div className="p-4 text-sm md:text-2xl font-bold space-x-4 flex items-center justify-between">Dashboard <button className="border-2 rounded-full p-0 md:p-2" onClick={() => setToggleSidebar(!toggleSidebar)}><GoX /> </button></div>
+        <div className="p-4 text-sm md:text-2xl font-bold space-x-4 flex items-center justify-between">Dashboard <button className="border-2 rounded-full p-0 md:p-2" onClick={() => setToggleSidebar(!toggleSidebar)}>
+          <a data-tooltip-id="my-tooltip" data-tooltip-content="Close!" data-tooltip-place="right">
+            <GoX /><Tooltip id="my-tooltip" className="text-lg font-light border-2" />
+          </a>
+        </button></div>
         <nav className="flex-1 px-4">
           <ul className="space-y-4">
             <li className="my-2 font-bold text-xs md:text-lg">
@@ -50,16 +56,16 @@ const Dashboard = () => {
 
       {/* Main Content */}
       <main className="flex-1 bg-gray-100 p-0 md:p-6">
-        <div>
-
-        </div>
         <header className="bg-white p-0 md:p-4 shadow rounded mb-4 flex items-center gap-4">
-          
-            <button className={`${toggleSidebar === false && "hidden"}`} onClick={() => setToggleSidebar(!toggleSidebar)}>
 
-            <MdMenu className="text-3xl" />
-            </button>
-          
+          <button className={`${toggleSidebar === false && "hidden"}`} onClick={() => setToggleSidebar(!toggleSidebar)}>
+            <a data-tooltip-id="my-tooltip" data-tooltip-content="Dashboard!" data-tooltip-place="right">
+            <MdMenu className="text-3xl" /><Tooltip id="my-tooltip" className="text-lg font-light" />
+            </a>
+
+            
+          </button>
+
           <h1 className="text-2xl font-bold">Welcome to the Dashboard</h1>
         </header>
         <section className="">
