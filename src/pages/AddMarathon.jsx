@@ -149,7 +149,7 @@ const AddMarathon = () => {
                             type="text"
                             name='img'
                             // onChange={handleFileChange}
-                            className="file-input file-input-bordered"
+                            className="input input-bordered"
                             required
                         />
                     </div>

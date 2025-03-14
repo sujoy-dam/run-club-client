@@ -9,9 +9,9 @@ const MarathonCard = ({ marathon }) => {
     marathonImg, registration_count}=marathon
   return (
     <div>
-      <div className="card bg-base-100 shadow-xl transform transition-transform hover:scale-105">
+      <div className="card bg-base-100 shadow-xl hover:outline-2 hover:outline-slate-500">
         <figure>
-          <img src={marathonImg} alt={title} className="h-48 w-full object-cover" />
+          <img src={marathonImg} alt={title} className="w-full object-cover transform transition-transform hover:scale-105" />
         </figure>
         <div className="card-body">
           <h2 className="card-title text-lg font-bold">{title}</h2>
@@ -29,7 +29,7 @@ const MarathonCard = ({ marathon }) => {
           </p>
           <div className="card-actions justify-end">
             <Link to={`/marathon-details/${_id}`}>
-            <button className="btn btn-primary">See Details</button>
+            <button className="btn btn-outline w-full">See Details</button>
             </Link>
           </div>
         </div>

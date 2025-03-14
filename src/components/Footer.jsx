@@ -2,13 +2,13 @@ import logo from '../assets/images/logo.png'
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-10 px-5 md:px-0">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
         {/* Logo and Description */}
         <div>
-          <div className='flex items-center gap-10'>
+          <div className='flex items-center gap-5'>
 
-          <h2 className="text-3xl font-bold text-primary mb-4 uppercase">runclub</h2>
-          <img className='w-16 h-16 rounded-full' src={logo} alt="" />
+          <h2 className="text-2xl lg:text-3xl font-bold text-primary mb-4 uppercase">runclub</h2>
+          <img className='w-12 lg:w-16 lg:h-16  rounded-full' src={logo} alt="" />
           </div>
           <p className="text-gray-400">
             Seamlessly organize and participate in marathons with our all-in-one

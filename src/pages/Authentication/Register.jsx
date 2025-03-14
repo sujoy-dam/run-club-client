@@ -1,11 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom'
 import bgImg from '../../assets/images/register.jpg'
 import logo from '../../assets/images/logo.png'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { AuthContext } from '../../providers/AuthProvider'
 import toast from 'react-hot-toast'
+import { FaEye, FaEyeSlash } from 'react-icons/fa'
 
 const Registration = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate()
   const { signInWithGoogle, createUser, updateUserProfile, setUser } =
     useContext(AuthContext)
@@ -20,17 +22,17 @@ const Registration = () => {
     // console.log({ email, pass, name, photo })
     if (pass.length < 6) {
       return toast.error("Password must be at least 6 characters long.");
-  }
+    }
 
-  // Check for at least one uppercase letter
-  if (!/[A-Z]/.test(pass)) {
+    // Check for at least one uppercase letter
+    if (!/[A-Z]/.test(pass)) {
       return toast.error('"Password must contain at least one uppercase letter."');
-  }
+    }
 
-  // Check for at least one lowercase letter
-  if (!/[a-z]/.test(pass)) {
+    // Check for at least one lowercase letter
+    if (!/[a-z]/.test(pass)) {
       return toast.error("Password must contain at least one lowercase letter.");
-  }
+    }
     try {
       //2. User Registration
       const result = await createUser(email, pass)
@@ -159,7 +161,7 @@ const Registration = () => {
               />
             </div>
 
-            <div className='mt-4'>
+            <div className='mt-4 relative'>
               <div className='flex justify-between'>
                 <label
                   className='block mb-2 text-sm font-medium text-gray-600 '
@@ -174,9 +176,14 @@ const Registration = () => {
                 autoComplete='current-password'
                 name='password'
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
-                type='password'
+                type={`${showPassword ? "text":"password"}`}
                 required
               />
+              <div className='absolute top-10 right-3' onClick={() => setShowPassword(!showPassword)}>
+                {
+                  showPassword ? <FaEye /> : <FaEyeSlash />
+                }
+              </div>
             </div>
             <div className='mt-6'>
               <button

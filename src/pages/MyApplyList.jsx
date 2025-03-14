@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 const MyApplyList = () => {
     const [myMarathons, setMyMarathons] = useState([])
+    const [search,setSearch]=useState("")
 
     // console.log(myMarathons)
     const { user } = useContext(AuthContext)
@@ -16,7 +17,7 @@ const MyApplyList = () => {
         fetchAllJobs()
     }, [user])
     const fetchAllJobs = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/applies/${user?.email}`)
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/applies/${user?.email}?search=${search}`)
         setMyMarathons(data)
         console.log(data)
     }
@@ -54,10 +55,29 @@ const MyApplyList = () => {
             // console.log(err.message)
         }
     }
+    console.log(search)
+    // const handleSearch = ()=>{
+
+    // }
     return (
         <div>
             {/* <h1>my apply list</h1> */}
             <section className='container px-2 md:px-4 mx-auto pt-12 mb-10'>
+                <div className='flex justify-center'>
+                    <label className="input input-bordered flex items-center gap-2">
+                        <input onChange={(e)=>setSearch(e.target.value)} type="text" className="grow" placeholder="Search" />
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 16 16"
+                            fill="currentColor"
+                            className="h-4 w-4 opacity-70">
+                            <path
+                                fillRule="evenodd"
+                                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                clipRule="evenodd" />
+                        </svg>
+                    </label>
+                </div>
                 <div className='flex items-center gap-x-3'>
                     <h2 className='text-lg font-medium text-gray-800 '>My Apply List</h2>
 
@@ -110,7 +130,7 @@ const MyApplyList = () => {
                                                         scope='col'
                                                         className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'
                                                     >
-                                                       Email
+                                                        Email
                                                     </th>
 
                                                     <th className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>

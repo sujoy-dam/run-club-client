@@ -1,8 +1,4 @@
-// import React from 'react';
-// import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
-// import { Link, NavLink, Outlet } from 'react-router-dom';
-// import AddMarathon from './AddMarathon';
-// import MyMarathonsList from './MyMarathonsList';
+
 import { GoX } from "react-icons/go";
 import { NavLink, Outlet } from "react-router-dom";
 import "./Dashboard.css";
@@ -22,7 +18,7 @@ const Dashboard = () => {
     <div className="min-h-screen flex mb-5 relative">
 
       {/* Sidebar */}
-      <aside className={`${toggleSidebar === true && "hidden"} absolute z-10  lg:static lg:min-h-screen w-64 bg-gray-800 pb-4 text-white flex flex-col`}>
+      <aside className={`${toggleSidebar === true && "hidden"} absolute h-full z-10 left-0 top-0 lg:sticky lg:min-h-screen w-64 bg-gray-800 pb-4 text-white flex flex-col`}>
         <div className="p-4 text-lg md:text-2xl font-bold space-x-4 flex items-center justify-between">Dashboard <button className="border-2 rounded-full p-1" onClick={() => setToggleSidebar(!toggleSidebar)}>
           <a data-tooltip-id="my-tooltip" data-tooltip-content="Close!" data-tooltip-place="right">
             <GoX /><Tooltip id="my-tooltip" className="text-lg font-light border-2" />

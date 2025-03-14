@@ -19,14 +19,14 @@ const MarathonDetails = () => {
     console.log(result2)
     return (
         <div>
-            <h1>Marathons Details</h1>
+            {/* <h1>Marathons Details</h1> */}
             <div className="container mx-auto px-4 py-8">
-                <div className="card w-full bg-base-100 shadow-xl">
+                <div className="card bg-base-100 shadow-xl">
                     <figure>
                         <img
                             src={marathon.marathonImg}
                             alt="Marathon"
-                            className="w-full h-60 object-cover"
+                            className="w-full h-full"
                         />
                     </figure>
                     <div className="card-body">

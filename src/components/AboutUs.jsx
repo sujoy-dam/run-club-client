@@ -1,5 +1,6 @@
 import React from 'react';
 import aboutImg from '../assets/images/aboutus.jpg'
+import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
     return (
@@ -38,7 +39,7 @@ const AboutUs = () => {
                             </p>
 
                             {/* Call to Action */}
-                            <button className="btn btn-primary mt-6">Join Our Community</button>
+                            <Link to="/dashboard/add-marathon" className="btn btn-primary mt-6">Join Our Community</Link>
                         </div>
                     </div>
 
