@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo.png'
 const Footer = () => {
   return (
@@ -21,24 +22,24 @@ const Footer = () => {
           <h3 className="text-xl font-semibold text-white mb-4">Useful Links</h3>
           <ul className="space-y-3">
             <li>
-              <a href="/about" className="link link-hover text-gray-300 hover:text-primary">
+              <Link to="/about" className="link link-hover text-gray-300 hover:text-primary">
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/events" className="link link-hover text-gray-300 hover:text-primary">
+              <Link to="/latest" href="#events" className="link link-hover text-gray-300 hover:text-primary">
                 Upcoming Events
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/contact" className="link link-hover text-gray-300 hover:text-primary">
+              <Link to="/contact" className="link link-hover text-gray-300 hover:text-primary">
                 Contact
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/faq" className="link link-hover text-gray-300 hover:text-primary">
+              <Link to="/faq" href="#faq" className="link link-hover text-gray-300 hover:text-primary">
                 FAQ
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -1,12 +1,26 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import logo from '../assets/images/logo.png'
 import { AuthContext } from '../providers/AuthProvider'
 import { Link, NavLink } from 'react-router-dom'
 import { CgMenuGridR } from 'react-icons/cg'
 import { FiLogOut } from 'react-icons/fi'
 import { FaUserCircle } from "react-icons/fa";
+import { FaLightbulb } from "react-icons/fa";
+import { FaRegLightbulb } from "react-icons/fa";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  console.log(theme)
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleToggle = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
+
   const nav = <>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/marathon'>All Marathons</NavLink></li>
@@ -18,9 +32,23 @@ const Navbar = () => {
       <div className="navbar bg-base-100 py-4 container mx-auto flex items-center">
         <div className="navbar-start">
           <div className='flex items-center gap-2'>
-            <Link to="/">
-              <img className='w-auto h-10 rounded-xl' src={logo} alt="" /></Link>
-            <Link to="/" className='uppercase text-lg lg:text-xl font-bold'>runclub</Link>
+            <div className="flex items-center gap-2">
+              <Link to="/">
+                <img className='w-auto h-10 rounded-xl' src={logo} alt="" /></Link>
+              <Link to="/" className='uppercase text-lg lg:text-xl font-bold'>runclub</Link>
+            </div>
+            <div className="form-control">
+              <label className="label cursor-pointer">
+                {/* <span className="label-text">Remember me</span> */}
+                <button onClick={handleToggle}>
+
+                  <input type="checkbox" className="toggle" defaultChecked />
+                  {/* {
+                            theme=="light"? <FaRegLightbulb />:<FaLightbulb />
+                          } */}
+                </button>
+              </label>
+            </div>
           </div>
         </div>
         <div className="navbar-end">
@@ -42,7 +70,7 @@ const Navbar = () => {
         </div>
         <div className=''>
           {user ? <div className='flex items-center mx-4'>
-              <button className='flex outline-1 outline items-center font-semibold py-2 gap-2 rounded-lg px-2 md:px-4 hover:bg-gray-700 hover:text-white' onClick={logOut}><FiLogOut />Logout</button>
+            <button className='flex outline-1 outline items-center font-semibold py-2 gap-2 rounded-lg px-2 md:px-4 hover:bg-gray-700 hover:text-white' onClick={logOut}><FiLogOut />Logout</button>
 
           </div> : <div className='mx-4 '>
             <NavLink to='/login'>
@@ -50,9 +78,9 @@ const Navbar = () => {
             </NavLink>
           </div>}
           {
-            user? <div className='hidden md:flex'>
-            <img referrerPolicy='no-referrer' className='md:w-28 lg:w-20 h-12 rounded-full' src={user.photoURL} alt="" />
-          </div>:<FaUserCircle className='text-[42px] hidden md:flex lg:flex'/>
+            user ? <div className='hidden md:flex'>
+              <img referrerPolicy='no-referrer' className='md:w-28 lg:w-20 h-12 rounded-full' src={user.photoURL} alt="" />
+            </div> : <FaUserCircle className='text-[42px] hidden md:flex lg:flex' />
           }
         </div>
       </div>

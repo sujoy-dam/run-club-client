@@ -51,8 +51,8 @@ const Dashboard = () => {
 
 
       {/* Main Content */}
-      <main className="flex-1 bg-gray-100 p-2 md:p-6">
-        <header className="bg-white p-4 shadow rounded mb-4 flex items-center gap-4">
+      <main className="flex-1 bg-base-100 p-2 md:p-6">
+        <header className="bg-base-100 p-4 shadow rounded mb-4 flex items-center gap-4">
 
           <button className={`${toggleSidebar === false && "hidden"}`} onClick={() => setToggleSidebar(!toggleSidebar)}>
             <a data-tooltip-id="my-tooltip" data-tooltip-content="Dashboard!" data-tooltip-place="right">

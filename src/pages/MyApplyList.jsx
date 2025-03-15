@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const MyApplyList = () => {
     const [myMarathons, setMyMarathons] = useState([])
-    const [search,setSearch]=useState("")
+    const [search, setSearch] = useState("")
 
     // console.log(myMarathons)
     const { user } = useContext(AuthContext)
@@ -65,7 +65,7 @@ const MyApplyList = () => {
             <section className='container px-2 md:px-4 mx-auto pt-12 mb-10'>
                 <div className='flex justify-center'>
                     <label className="input input-bordered flex items-center gap-2">
-                        <input onChange={(e)=>setSearch(e.target.value)} type="text" className="grow" placeholder="Search" />
+                        <input onChange={(e) => setSearch(e.target.value)} type="text" className="grow" placeholder="Search" />
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
@@ -79,7 +79,7 @@ const MyApplyList = () => {
                     </label>
                 </div>
                 <div className='flex items-center gap-x-3'>
-                    <h2 className='text-lg font-medium text-gray-800 '>My Apply List</h2>
+                    <h2 className='text-lg font-medium text-base-800 '>My Apply List</h2>
 
                     <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
                         {myMarathons.length}
@@ -93,7 +93,7 @@ const MyApplyList = () => {
                                 {
                                     myMarathons.length === 0 ? <div className='min-h-screen flex justify-center items-center'><h1>You do not add any marathon</h1></div> :
                                         <table className='min-w-full divide-y divide-gray-200'>
-                                            <thead className='bg-gray-50'>
+                                            <thead className='bg-base-100'>
                                                 <tr>
                                                     <th
                                                         scope='col'
@@ -138,7 +138,7 @@ const MyApplyList = () => {
                                                     </th>
                                                 </tr>
                                             </thead>
-                                            <tbody className='bg-white divide-y divide-gray-200 '>
+                                            <tbody className='bg-base-100 divide-y divide-gray-200 '>
                                                 {
                                                     myMarathons.map(marathon => <tr key={marathon._id}>
                                                         <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>

@@ -57,9 +57,9 @@ const AddMarathon = () => {
         }
     };
     return (
-        <div className=''>
+        <div className='bg-base-100'>
             {/* <h1>merathon</h1> */}
-            <div className="w-full mx-auto p-2 md:p-6 bg-white shadow-lg rounded-lg">
+            <div className="w-full mx-auto p-2 md:p-6 shadow-lg rounded-lg">
                 <h2 className="text-2xl font-bold mb-6">Create a Marathon Event</h2>
                 <form onSubmit={handleSubmit} className="grid grid-cols-12 gap-x-10 gap-5">
                     {/* Marathon Title */}
@@ -82,7 +82,7 @@ const AddMarathon = () => {
                         <DatePicker
                             selected={startRegistrationDate}
                             onChange={(date) => setStartRegistrationtDate(date)}
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full z-40"
                             placeholderText="Select start date"
                             required
                         />

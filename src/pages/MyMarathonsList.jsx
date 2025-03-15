@@ -58,7 +58,7 @@ const MyMarathonsList = () => {
             {/* <h1>My marathons list</h1> */}
             <section className='container px-2 md:px-4 mx-auto pt-12 mb-10'>
                 <div className='flex items-center gap-x-3'>
-                    <h2 className='text-lg font-medium text-gray-800 '>My marathons List</h2>
+                    <h2 className='text-lg font-medium text-base-800 '>My marathons List</h2>
 
                     <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
                         {myMarathons.length}
@@ -72,7 +72,7 @@ const MyMarathonsList = () => {
                                 {
                                     myMarathons.length === 0 ? <div className='min-h-screen flex justify-center items-center'><h1>You do not add any marathon</h1></div> :
                                         <table className='min-w-full divide-y divide-gray-200'>
-                                            <thead className='bg-gray-50'>
+                                            <thead className='bg-base-50'>
                                                 <tr>
                                                     <th
                                                         scope='col'
@@ -117,7 +117,7 @@ const MyMarathonsList = () => {
                                                     </th>
                                                 </tr>
                                             </thead>
-                                            <tbody className='bg-white divide-y divide-gray-200 '>
+                                            <tbody className='bg-base-100 divide-y divide-gray-200 '>
                                                 {
                                                     myMarathons.map(marathon => <tr key={marathon._id}>
                                                         <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>

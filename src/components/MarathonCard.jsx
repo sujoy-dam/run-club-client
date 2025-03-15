@@ -11,7 +11,7 @@ const MarathonCard = ({ marathon }) => {
     <div>
       <div className="card bg-base-100 shadow-xl hover:outline-2 hover:outline-slate-500">
         <figure>
-          <img src={marathonImg} alt={title} className="w-full object-cover transform transition-transform hover:scale-105" />
+          <img src={marathonImg} alt={title} className="w-full h-60 object-cover transform transition-transform hover:scale-105" />
         </figure>
         <div className="card-body">
           <h2 className="card-title text-lg font-bold">{title}</h2>

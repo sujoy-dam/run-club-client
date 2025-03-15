@@ -18,6 +18,10 @@ import Dashboard from '../pages/Dashboard'
 import UpdateMarathon from '../pages/UpdateMarathon'
 import MarathonRegister from '../pages/MarathonRegister'
 import RegistrationUpadate from '../pages/RegistrationUpadate'
+import Contact from '../components/Contact'
+import FAQ from '../components/FAQ'
+import AboutUs from '../components/AboutUs'
+import HomeMarathon from '../components/HomeMarathon'
 // import MyBids from '../pages/MyBids'
 // import BidRequests from '../pages/BidRequests'
 // import AllJobs from '../pages/AllJobs'
@@ -97,6 +101,21 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:"/contact",
+    element:<Contact/>
+  },
+  {
+    path:"/faq",
+    element:<FAQ/>
+  },
+  {
+    path:"/about",
+    element:<AboutUs/>
+  },{
+    path:"/latest",
+    element:<HomeMarathon/>
+  }
 ])
 
 export default router

@@ -58,7 +58,7 @@ const MarathonRegister = () => {
             // console.log(data)
             form.reset()
             toast.success('Registered successfully')
-            navigate('/my-apply-list')
+            navigate('/dashboard/my-apply-list')
         } catch (err) {
             // console.log(err)
             toast.error(err.message)

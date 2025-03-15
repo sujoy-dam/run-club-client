@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import MarathonCard from './MarathonCard';
-import HomeMarathonCard from './HomeMarathonCard';
+// import HomeMarathonCard from './HomeMarathonCard';
 
 const HomeMarathon = () => {
   const [homeMarathons, setHomeMarathons] = useState([])
@@ -16,13 +16,13 @@ const HomeMarathon = () => {
     setHomeMarathons(data)
   }
   return (
-    <div className='container mx-auto mb-10'>
+    <div className='container mx-auto my-16' id="events">
       <div className='container mx-auto'>
-        <h1 className='text-4xl text-center mb-8 font-semibold'>Marathons Latest Event</h1>
+        <h1 className='text-4xl text-center mb-8 font-semibold'>Marathons Event</h1>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 
           {
-            homeMarathons.map(marathon => <HomeMarathonCard marathon={marathon} key={marathon._id}></HomeMarathonCard>)
+            homeMarathons.map(marathon => <MarathonCard marathon={marathon} key={marathon._id}></MarathonCard>)
           }
         </div>
       </div>

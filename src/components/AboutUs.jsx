@@ -3,10 +3,11 @@ import aboutImg from '../assets/images/aboutus.jpg'
 import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
+    
     return (
-        <div>
-            <section className="bg-gradient-to-r from-blue-500 to-green-400 py-20 text-white">
-                <div className="container mx-auto px-6 text-center md:text-left">
+        <>
+            <section className="bg-base-100 shadow-xl">
+                <div className="container mx-auto p-16 text-center md:text-left border-2 rounded-xl">
                     {/* Title */}
                     <div className="mb-12">
                         <h2 className="text-4xl font-bold mb-4">About Us</h2>
@@ -16,9 +17,9 @@ const AboutUs = () => {
                     </div>
 
                     {/* Image and Text Content */}
-                    <div className="flex flex-col lg:flex-row items-center gap-12">
+                    <div className="flex flex-col lg:flex-row items-center gap-8">
                         {/* Image */}
-                        <div className="lg:w-1/2">
+                        <div className="w-full lg:w-1/2">
                             <img
                                 src={aboutImg}
                                 alt="Marathon runners"
@@ -27,7 +28,7 @@ const AboutUs = () => {
                         </div>
 
                         {/* Text */}
-                        <div className="lg:w-1/2 text-gray-100">
+                        <div className="w-full lg:w-1/2">
                             <h3 className="text-3xl font-semibold mb-6">
                                 Our Mission and Vision
                             </h3>
@@ -45,22 +46,22 @@ const AboutUs = () => {
 
                     {/* Stats Section */}
                     <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div className="text-center bg-white p-8 rounded-lg shadow-xl transform transition-transform hover:scale-105">
+                        <div className="text-center bg-base-200 p-8 rounded-lg shadow-xl transform transition-transform hover:scale-105">
                             <h4 className="text-4xl font-bold text-blue-600">15+</h4>
                             <p className="text-gray-700">Years of Experience</p>
                         </div>
-                        <div className="text-center bg-white p-8 rounded-lg shadow-xl transform transition-transform hover:scale-105">
+                        <div className="text-center bg-base-200 p-8 rounded-lg shadow-xl transform transition-transform hover:scale-105">
                             <h4 className="text-4xl font-bold text-blue-600">60,000+</h4>
                             <p className="text-gray-700">Runners Participated</p>
                         </div>
-                        <div className="text-center bg-white p-8 rounded-lg shadow-xl transform transition-transform hover:scale-105">
+                        <div className="text-center bg-base-200 p-8 rounded-lg shadow-xl transform transition-transform hover:scale-105">
                             <h4 className="text-4xl font-bold text-blue-600">200+</h4>
                             <p className="text-gray-700">Successful Events</p>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     );
 };
 
