@@ -22,6 +22,7 @@ import Contact from '../components/Contact'
 import FAQ from '../components/FAQ'
 import AboutUs from '../components/AboutUs'
 import HomeMarathon from '../components/HomeMarathon'
+import UpcaommingMarathon from '../components/UpcaommingMarathon'
 // import MyBids from '../pages/MyBids'
 // import BidRequests from '../pages/BidRequests'
 // import AllJobs from '../pages/AllJobs'
@@ -114,7 +115,7 @@ const router = createBrowserRouter([
     element:<AboutUs/>
   },{
     path:"/latest",
-    element:<HomeMarathon/>
+    element:<UpcaommingMarathon/>
   }
 ])
 

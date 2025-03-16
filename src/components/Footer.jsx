@@ -50,7 +50,7 @@ const Footer = () => {
           <p className="text-gray-400">
             Email: <a href="mailto:info@marathonmanager.com" className="text-primary">info@marathonmanager.com</a>
           </p>
-          <p className="text-gray-400">Phone: +123-456-7890</p>
+          <p className="text-gray-400">Phone: +8801736812348</p>
           <div className="mt-4 flex space-x-4">
             <a href="#" className="text-primary hover:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">

@@ -1,6 +1,8 @@
 import React from 'react';
 import aboutImg from '../assets/images/aboutus.jpg'
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const AboutUs = () => {
     

@@ -54,7 +54,7 @@ const MyMarathonsList = () => {
         }
     }
     return (
-        <div>
+        <>
             {/* <h1>My marathons list</h1> */}
             <section className='container px-2 md:px-4 mx-auto pt-12 mb-10'>
                 <div className='flex items-center gap-x-3'>
@@ -65,13 +65,13 @@ const MyMarathonsList = () => {
                     </span>
                 </div>
 
-                <div className='flex flex-col mt-6'>
+                <div className='flex overflow-x-auto flex-col mt-6'>
                     <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
                         <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
                             <div className='overflow-hidden border border-gray-200  md:rounded-lg'>
                                 {
                                     myMarathons.length === 0 ? <div className='min-h-screen flex justify-center items-center'><h1>You do not add any marathon</h1></div> :
-                                        <table className='min-w-full divide-y divide-gray-200'>
+                                        <table className='min-w-full overflow-x-auto divide-y divide-gray-200'>
                                             <thead className='bg-base-50'>
                                                 <tr>
                                                     <th
@@ -194,7 +194,7 @@ const MyMarathonsList = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     );
 };
 

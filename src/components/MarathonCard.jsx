@@ -1,15 +1,18 @@
 import { format } from 'date-fns';
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 const MarathonCard = ({ marathon }) => {
   const {_id, title,
     startRegistration,email,
     endRegistration, location, 
     marathonImg, registration_count}=marathon
   return (
-    <div>
-      <div className="card bg-base-100 shadow-xl hover:outline-2 hover:outline-slate-500">
+    <>
+      <div ata-aos="fade-up"  
+      className="card bg-base-100 shadow-xl hover:outline-2 hover:outline-slate-500">
         <figure>
           <img src={marathonImg} alt={title} className="w-full h-60 object-cover transform transition-transform hover:scale-105" />
         </figure>
@@ -34,7 +37,7 @@ const MarathonCard = ({ marathon }) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

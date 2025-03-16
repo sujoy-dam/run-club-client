@@ -5,6 +5,11 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+// import AOS from 'aos';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
@@ -16,7 +21,7 @@ import bgimg3 from '../assets/images/carousel3.jpg'
 
 export default function Carousel() {
   return (
-    <div className='container py-5 mx-auto rounded-lg'>
+    <div data-aos="fade-up" className='container py-5 mx-auto rounded-lg'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

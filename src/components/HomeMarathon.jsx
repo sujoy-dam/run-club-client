@@ -2,6 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import MarathonCard from './MarathonCard';
 // import HomeMarathonCard from './HomeMarathonCard';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const HomeMarathon = () => {
   const [homeMarathons, setHomeMarathons] = useState([])
@@ -16,8 +20,8 @@ const HomeMarathon = () => {
     setHomeMarathons(data)
   }
   return (
-    <div className='container mx-auto my-16' id="events">
-      <div className='container mx-auto'>
+    <>
+      <div className='container mx-auto my-16' ata-aos="fade-up">
         <h1 className='text-4xl text-center mb-8 font-semibold'>Marathons Event</h1>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 
@@ -26,7 +30,7 @@ const HomeMarathon = () => {
           }
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
