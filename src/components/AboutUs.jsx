@@ -3,16 +3,17 @@ import aboutImg from '../assets/images/aboutus.jpg'
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+AOS.init();
 
 const AboutUs = () => {
     
     return (
         <>
-            <section className="bg-base-100 shadow-xl">
-                <div className="container mx-auto p-16 text-center md:text-left border-2 rounded-xl">
+            <section className="bg-base-100 shadow-xl" data-aos="fade-right">
+                <div className="container mx-auto p-5 md:p-16 text-center md:text-left border-2 rounded-xl">
                     {/* Title */}
                     <div className="mb-12">
-                        <h2 className="text-4xl font-bold mb-4">About Us</h2>
+                        <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">About Us</h2>
                         <p className="text-lg md:text-xl">
                             Empowering Runners, Inspiring Communities
                         </p>
@@ -42,7 +43,7 @@ const AboutUs = () => {
                             </p>
 
                             {/* Call to Action */}
-                            <Link to="/dashboard/add-marathon" className="btn btn-primary mt-6">Join Our Community</Link>
+                            <Link to="/dashboard/add-marathon" className="btn bg-violet-500 mt-6">Join Our Community</Link>
                         </div>
                     </div>
 

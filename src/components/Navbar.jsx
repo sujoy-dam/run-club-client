@@ -5,8 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { CgMenuGridR } from 'react-icons/cg'
 import { FiLogOut } from 'react-icons/fi'
 import { FaUserCircle } from "react-icons/fa";
-import { FaLightbulb } from "react-icons/fa";
-import { FaRegLightbulb } from "react-icons/fa";
+// import "./Navbar.css"
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -29,12 +28,12 @@ const Navbar = () => {
   </>
   return (
     <>
-      <div className="navbar bg-base-100 py-4 container mx-auto flex items-center">
+      <div className="navbar py-4 container text-white mx-auto flex items-center">
         <div className="navbar-start">
           <div className='flex items-center gap-2'>
             <div className="flex items-center gap-2">
               <Link to="/">
-                <img className='w-auto h-10 rounded-xl' src={logo} alt="" /></Link>
+                <img className='w-10 h-10 rounded-xl' src={logo} alt="" /></Link>
               <Link to="/" className='uppercase text-lg lg:text-xl font-bold'>runclub</Link>
             </div>
             <div className="form-control">
@@ -43,9 +42,7 @@ const Navbar = () => {
                 <button onClick={handleToggle}>
 
                   <input type="checkbox" className="toggle" defaultChecked />
-                  {/* {
-                            theme=="light"? <FaRegLightbulb />:<FaLightbulb />
-                          } */}
+                  
                 </button>
               </label>
             </div>
@@ -53,7 +50,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <div className="hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 space-x-0 lg:space-x-4">
+            <ul className="menu menu-horizontal text-white font-bold px-1 space-x-0 lg:space-x-4">
               {nav}
             </ul>
           </div>

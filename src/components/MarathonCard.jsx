@@ -11,7 +11,7 @@ const MarathonCard = ({ marathon }) => {
     marathonImg, registration_count}=marathon
   return (
     <>
-      <div ata-aos="fade-up"  
+      <div  
       className="card bg-base-100 shadow-xl hover:outline-2 hover:outline-slate-500">
         <figure>
           <img src={marathonImg} alt={title} className="w-full h-60 object-cover transform transition-transform hover:scale-105" />

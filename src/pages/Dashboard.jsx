@@ -18,29 +18,29 @@ const Dashboard = () => {
     <div className="min-h-screen flex mb-5 relative">
 
       {/* Sidebar */}
-      <aside className={`${toggleSidebar === true && "hidden"} absolute h-full z-10 left-0 top-0 lg:sticky lg:min-h-screen w-64 bg-gray-800 pb-4 text-white flex flex-col`}>
-        <div className="p-4 text-lg md:text-2xl font-bold space-x-4 flex items-center justify-between">Dashboard <button className="border-2 rounded-full p-1" onClick={() => setToggleSidebar(!toggleSidebar)}>
+      <aside className={`${toggleSidebar === true && "hidden"} absolute h-full z-10 left-0 top-0 lg:sticky lg:min-h-screen w-64 bg-base-200 shadow-xl pb-4 flex flex-col`}>
+        <div className="p-4 text-lg md:text-xl font-bold space-x-4 flex items-center justify-between">Dashboard <button className="border rounded-full p-1" onClick={() => setToggleSidebar(!toggleSidebar)}>
           <a data-tooltip-id="my-tooltip" data-tooltip-content="Close!" data-tooltip-place="right">
             <GoX /><Tooltip id="my-tooltip" className="text-lg font-light border-2" />
           </a>
         </button></div>
-        <nav className="flex-1 px-4">
-          <ul className="space-y-4">
-            <li className="my-2 font-bold text-xs md:text-lg">
-              <NavLink to="/dashboard/add-marathon" className="flex items-center gap-2 py-2 px-3 rounded hover:outline-2 hover:outline-pink-500 hover:outline">
-                <FaAddressBook className="text-xl md:text-2xl" />
+        <nav className="flex-1 dashboard px-4">
+          <ul className="space-y-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+            <li className="my-2 font-semibold text-lg">
+              <NavLink to="/dashboard/add-marathon" className="flex items-center gap-2 py-2 px-3 rounded hover:outline-2 hover:outline-violet-500 hover:outline">
+                <FaAddressBook className="text-pink-500" />
                 Add Marathon
               </NavLink>
             </li>
-            <li className="my-2 font-bold text-xs md:text-lg">
-              <NavLink to="my-marathons-list" className="flex items-center gap-2 py-2 px-3 rounded hover:outline-2 hover:outline-pink-500 hover:outline">
-                <FaThList className="text-xl md:text-2xl" />
+            <li className="my-2 font-semibold text-lg">
+              <NavLink to="my-marathons-list" className="flex items-center gap-2 py-2 px-3 rounded hover:outline-2 hover:outline-violet-500 hover:outline">
+                <FaThList className="text-pink-500" />
                 My Marathons List
               </NavLink>
             </li>
-            <li className="my-2 font-bold text-xs md:text-lg">
-              <NavLink to="my-apply-list" className="flex items-center gap-2 py-2 px-3 rounded hover:outline-2 hover:outline-pink-500 hover:outline">
-                <RiFileListFill className="text-xl md:text-2xl" />
+            <li className="my-2 font-semibold text-lg">
+              <NavLink to="my-apply-list" className="flex items-center gap-2 py-2 px-3 rounded hover:outline-2 hover:outline-violet-500 hover:outline">
+                <RiFileListFill className="text-pink-500" />
                 My Apply List
               </NavLink>
             </li>

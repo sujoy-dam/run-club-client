@@ -8,13 +8,13 @@ const Main = () => {
   return (
     <div className='relative px-2 md:px-0 lg:px-0'>
       {/* Navbar */}
-      <nav className='sticky top-0 z-30 bg-base-100 shadow-lg'>
+      <nav className='sticky top-0 z-30 bg-violet-500 shadow-lg'>
 
         <Navbar />
         {/* <Nav/> */}
       </nav>
       {/* Outlet */}
-      <div className='min-h-[calc(100vh-306px)] container mx-auto'>
+      <div className='min-h-[calc(100vh-306px)]'>
         <Outlet />
       </div>
       {/* Footer */}
